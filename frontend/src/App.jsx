@@ -17,6 +17,8 @@ function App() {
     if (isCheckingAuth) return <PageLoader />;
 
   return (
+    <>
+    <Toaster containerStyle={{ zIndex: 9999 }} toastOptions={{ position: "top-center" }} />
     <div className="min-h-screen bg-slate-900 relative flex items-center justify-center p-4 overflow-hidden">
       {/* DECORATORS - GRID BG & GLOW SHAPES */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
@@ -28,9 +30,8 @@ function App() {
         <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to={"/"}/>} />
         <Route path="/signup" element={!authUser ? <SignUpPage /> : < Navigate to={"/"}/>} />
       </Routes>
-
-      <Toaster />
     </div>
+  </>
   );
 }
 export default App;
